@@ -1,0 +1,70 @@
+#header {
+  grid-area: hd;
+  background-color: #FFF;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+body {
+  background-color: #EAEAEA;
+}
+
+#data {
+  grid-area: dat;
+  background-color: #FFF;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px;
+}
+
+#russian {
+  float: right;
+}
+
+#instructions {
+  grid-area: instruct;
+  padding: 25px;
+  background-color: #FFF;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+th, td {
+    border: 1px solid black;
+    padding: 5px;
+}
+td {
+  border-left: 6px solid #474747;
+}
+#footer {
+  grid-area: ft;
+  background-color: #FFF;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#master {
+  font-family: 'Roboto', sans-serif;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 200px 200px 200px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  grid-gap: 10px;
+  padding: 25px;
+  grid-template-areas:
+  'hd hd hd'
+  'dat dat instruct'
+  'dat dat instruct'
+  'dat dat instruct'
+  'ft ft ft';
+}
+
+#wa {
+  width:200px;
+  height:200px;
+}
+
+#mvhs {
+  width:200px;
+  height:200px;
+}
+
+#chs {
+  width:200px;
+  height:200px;
+}

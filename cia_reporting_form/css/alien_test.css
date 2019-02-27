@@ -1,0 +1,30 @@
+#header {
+  grid-area: hd;
+  background-color: #CCC;
+}
+
+#data {
+  grid-area: dat;
+  background-color: #CCC;
+}
+
+#instructions {
+  grid-area: instruct;
+  background-color: #CCC;
+}
+
+#footer {
+  grid-area: ft;
+  background-color: #CCC;
+}
+
+#master {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 200px 200px 200px;
+  grid-gap: 10px;
+  grid-template-areas:
+  'hd hd hd'
+  'dat dat instruct'
+  'ft ft ft';
+}

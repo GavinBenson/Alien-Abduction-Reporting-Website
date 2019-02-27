@@ -1,0 +1,85 @@
+/* Create our DB, name is 'DB_alien' */
+CREATE DATABASE DB_alien;
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| DB_alien           |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| sys                |
++--------------------+
+
+/* Create table and insert test data */
+CREATE TABLE alien_abduction (
+	id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	first_name VARCHAR(30),
+	last_name VARCHAR(30),
+	when_it_happened VARCHAR(30),
+	how_long VARCHAR(30),
+	how_many VARCHAR(30),
+	alien_description VARCHAR(100),
+	what_they_did VARCHAR(250),
+	other_abductees VARCHAR(10),
+	abductee_description VARCHAR(100),
+	other_info VARCHAR(100),
+	email VARCHAR(50),
+	report_date TIMESTAMP
+);
+
+mysql> SHOW TABLES;
++--------------------+
+| Tables_in_DB_alien |
++--------------------+
+| alien_abduction   |
++--------------------+
+
+mysql> DESCRIBE alien_abduction;
++----------------------+--------------+------+-----+-------------------+-----------------------------+
+| Field                | Type         | Null | Key | Default           | Extra                       |
++----------------------+--------------+------+-----+-------------------+-----------------------------+
+| id                   | int(11)      | NO   | PRI | NULL              | auto_increment              |
+| first_name           | varchar(30)  | NO   |     | NULL              |                             |
+| last_name            | varchar(30)  | NO   |     | NULL              |                             |
+| when_it_happened     | varchar(30)  | NO   |     | NULL              |                             |
+| how_long             | varchar(30)  | YES  |     | NULL              |                             |
+| how_many             | varchar(30)  | YES  |     | NULL              |                             |
+| alien_description    | varchar(100) | NO   |     | NULL              |                             |
+| what_they_did        | varchar(250) | YES  |     | NULL              |                             |
+| other_abductees      | varchar(10)  | YES  |     | NULL              |                             |
+| abductee_description | varchar(100) | YES  |     | NULL              |                             |
+| other_info           | varchar(100) | YES  |     | NULL              |                             |
+| email                | varchar(50)  | YES  |     | NULL              |                             |
+| report_date          | timestamp    | NO   |     | CURRENT_TIMESTAMP | on update CURRENT_TIMESTAMP |
++----------------------+--------------+------+-----+-------------------+-----------------------------+
+
+
+INSERT INTO alien_abduction VALUES (
+NULL,
+'Vane',
+'Boe',
+'Wednesday',
+'5 hours',
+'8',
+'Tall with big heads',
+'Tractor Beam, knocked out, woke up in a field.',
+'Yes',
+'Frank, Agent K, JJ',
+'They took my shoes.',
+'JD@gmail.com',
+NULL
+);
+
+mysql> SELECT * FROM aliens_abduction;
++----+------------+-----------+------------------+----------+----------+---------------------+------------------------------------------------+-----------------+----------------------+---------------------+--------------+---------------------+
+| id | first_name | last_name | when_it_happened | how_long | how_many | alien_description   | what_they_did                                  | other_abductees | abductee_description | other_info          | email        | report_date         |
++----+------------+-----------+------------------+----------+----------+---------------------+------------------------------------------------+-----------------+----------------------+---------------------+--------------+---------------------+
+|  1 | Jane       | Doe       | Wednesday        | 5 hours  | 8        | Tall with big heads | Tractor Beam, knocked out, woke up in a field. | Yes             | Frank, Agent K, JJ   | They took my shoes. | JD@gmail.com | 2018-03-01 08:15:19 |
++----+------------+-----------+------------------+----------+----------+---------------------+------------------------------------------------+-----------------+----------------------+---------------------+--------------+---------------------+
+
+Connect to PHP after SQL testing.
+<?php require "DBconnect_4parm.php";?>
+<?php require "DBclose.php";?>

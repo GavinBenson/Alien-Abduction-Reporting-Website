@@ -1,0 +1,128 @@
+First confirmation that our php is reading the form and giving us an echo.
+
+Form HTML:
+<h3>Alien Abduction Form MIB</h3>
+<form method="post" action="php/report.php">
+  <label for="firstname">First name:</label>
+  <input type="text" id="firstname" name="firstname" /><br>
+
+  <label for="lastname">Last name:</label>
+  <input type="text" id="lastname" name="lastname" /><br>
+
+  <label for="email">What is your email address?</label>
+  <input type="text" id="email" name="email" /><br>
+
+  <label for="whenithappened">When did it happen?</label>
+  <input type="text" id="whenithappened" name="whenithappened" /><br>
+
+  <label for="howlong">How long were you gone?</label>
+  <input type="text" id="howlong" name="howlong" /><br>
+
+  <label for="howmany">How many aliens did you see?</label>
+  <input type="text" id="howmany" name="howmany" /><br>
+
+  <label for="aliendescription">Describe them:</label>
+  <input type="text" id="aliendescription" name="aliendescription" size="32" /><br>
+
+  <label for="whattheydid">What did they do to you?</label>
+  <input type="text" id="whattheydid" name="whattheydid" size="32" /><br>
+
+  <label for="otherabductees">Did you see any other abductees?</label>
+    Yes<input id="otherabductees" name="otherabductees" type="radio" value="yes" />
+    No<input id="otherabductees" name="otherabductees" type="radio" value="no" /><br>
+
+  <label for="frankspotted">Did you see Frank (...a Remoolian in a Pug body...)?</label>
+    Yes<input id="frankspotted" name="frankspotted" type="radio" value="yes" />
+    No<input id="frankspotted" name="frankspotted" type="radio" value="no" /><br>
+  <img id="frank" src="images/frank.jpg" alt="Frank" /><br>
+
+  <label for="other">Anything else you want to add?</label><br>
+  <textarea id="other" name="other"></textarea><br>
+  <input type="submit" value="Report Abduction" name="submit" />
+</form>
+
+php confirmation:
+<?php
+
+  $name = $_POST['firstname'].' '.$_POST['lastname'];
+  $when_it_happened = $_POST['whenithappened'];
+  $how_long = $_POST['howlong'];
+  $how_many = $_POST['howmany'];
+  $alien_description = $_POST['aliendescription'];
+  $what_they_did = $_POST['whattheydid'];
+  $other_abductees = $_POST['otherabductees'];
+  $frank_spotted = $_POST['frankspotted'];
+  $email = $_POST['email'];
+  $other = $_POST['other'];
+
+  echo 'Thanks for submitting the form!<br>';
+  echo 'Hello, ' . $name . '!<br>';
+  echo 'You were abducted ' . $when_it_happened;
+  echo ' and were gone for ' . $how_long . '<br>';
+  echo 'Number of aliens: ' . $how_many . '<br>';
+  echo 'Describe them: ' . $alien_description . '<br>';
+  echo 'The aliens did this: ' . $what_they_did . '<br>';
+  echo 'Were there any other abductees? ' . $other_abductees . '<br>';
+  echo 'Was Frank there? ' . $frank_spotted . '<br>';
+  echo 'Other comments: ' . $other . '<br>';
+  echo 'Your email address is ' . $email;
+
+  echo '<hr>';
+  echo 'Meta Data';
+
+  $indicesServer = array(
+    'PHP_SELF',
+    'GATEWAY_INTERFACE',
+    'SERVER_ADDR',
+    'SERVER_NAME',
+    'SERVER_SOFTWARE',
+    'SERVER_PROTOCOL',
+    'REQUEST_METHOD',
+    'REQUEST_TIME',
+    'REQUEST_TIME_FLOAT',
+    'QUERY_STRING',
+    'DOCUMENT_ROOT',
+    'HTTP_ACCEPT',
+    'HTTP_ACCEPT_CHARSET',
+    'HTTP_ACCEPT_ENCODING',
+    'HTTP_ACCEPT_LANGUAGE',
+    'HTTP_CONNECTION',
+    'HTTP_HOST',
+    'HTTP_REFERER',
+    'HTTP_USER_AGENT',
+    'HTTPS',
+    'REMOTE_ADDR',
+    'REMOTE_HOST',
+    'REMOTE_PORT',
+    'REMOTE_USER',
+    'REDIRECT_REMOTE_USER',
+    'SCRIPT_FILENAME',
+    'SERVER_ADMIN',
+    'SERVER_PORT',
+    'SERVER_SIGNATURE',
+    'PATH_TRANSLATED',
+    'SCRIPT_NAME',
+    'REQUEST_URI',
+    'PHP_AUTH_DIGEST',
+    'PHP_AUTH_USER',
+    'PHP_AUTH_PW',
+    'AUTH_TYPE',
+    'PATH_INFO',
+    'ORIG_PATH_INFO'
+  );
+
+echo '<table id="metadata_table">';
+foreach($indicesServer as $arg)
+{
+  if(isset($_SERVER[$arg]))
+  {
+    echo '<tr><td class="title">' . $arg . '</td><td>' . $_SERVER[$arg] . '</td></tr>';
+  }
+  else
+  {
+    echo '<tr><td class="title">' . $arg . '</td><td>-</td></tr>';
+  }
+}
+
+echo '</table>';
+?>

@@ -1,0 +1,56 @@
+body
+{
+  background-color: #EAEAEA;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-align: center;
+}
+
+h1, h2, h3
+{
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+}
+
+#header
+{
+  grid-area: hd;
+  background-color: #FFF;
+}
+
+#database
+{
+  grid-area: db;
+  background-color: #FFF;
+}
+
+#instructions
+{
+  grid-area: instruct;
+  background-color: #FFF;
+}
+
+#footer
+{
+  grid-area: ft;
+  background-color: #FFF;
+}
+
+#master
+{
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
+  grid-template-rows: auto auto auto;
+  grid-gap: 10px;
+  grid-template-areas:
+  'hd  hd hd'
+  'db  db instruct'
+  'ft   ft ft'
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 5px;
+}
+td {
+  border-left: 6px solid #474747;
+}
